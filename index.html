@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>新宿怡家旅馆 — 主页</title>
+
+  <!-- 艺术字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+  /* ========= 全局 ========= */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; background:#f5f5f5; color:#333; }
+
+  /* ========= 导航 ========= */
+header.site-header {
+  width:100%;
+  background:#333;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);
+}
+.nav-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  padding:14px 20px;
+}
+.site-brand {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size:28px; /* LOGO 放大 */
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  margin-right:40px; /* LOGO 左移一点 */
+}
+nav.main-nav {
+  display:flex;
+  flex:1;
+  justify-content:center; /* 导航文字居中 */
+  align-items:center;
+  gap:30px; /* 导航文字间距 */
+}
+nav.main-nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:18px;
+  padding:0;
+}
+
+  /* 语言选择 */
+  .lang-wrap { margin-left:auto; }
+  .lang-wrap select { padding:8px 12px; border-radius:6px; border:none; font-size:15px; }
+
+  /* ========= 轮播 ========= */
+  .carousel { position:relative; width:100%; height:600px; overflow:hidden; }
+  .carousel-images { display:flex; width:100%; height:100%; transition:transform 0.6s ease; }
+  .carousel-images img { width:100%; flex-shrink:0; height:100%; object-fit:cover; }
+  .carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background: rgba(0,0,0,0.4); color:#fff; border:none; padding:12px 18px; cursor:pointer; font-size:28px; border-radius:8px; }
+  .carousel-btn.prev { left:15px; }
+  .carousel-btn.next { right:15px; }
+
+  /* ========= 页面内容 ========= */
+  .content { max-width:1000px; margin:30px auto; padding:20px; background:#fff; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+  h1,h2,h3 { color:#333; margin-bottom:20px; }
+  h1 { font-size:32px; }
+  p,ul { font-size:18px; line-height:1.8; color:#333; }
+  ul { list-style: disc; padding-left: 30px; }
+  li { margin-bottom:8px; }
+
+  /* Section 布局 */
+  .home-section { display:flex; align-items:center; gap:40px; max-width:1200px; margin:60px auto; padding:30px; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.07); flex-wrap:wrap; }
+  .home-section.left-text { flex-direction: row; }
+  .home-section.left-image { flex-direction: row-reverse; }
+  .home-section .home-text, .home-section img { flex:1 1 50%; }
+  .home-section img { border-radius:12px; object-fit:cover; width:100%; max-height:400px; }
+
+  /* ========= Footer ========= */
+  .site-footer { background:#000; color:#fff; padding:40px 20px; text-align:center; margin-top:40px; }
+  .footer-title { font-size:34px; color:#ff8a00; margin-bottom:14px; font-weight:700; }
+  .footer-info { font-size:16px; line-height:1.6; margin-bottom:18px; }
+  .footer-copy { font-size:12px; opacity:0.8; }
+
+  /* 隐藏 data-lang 元素（备用，不影响现有文本替换方式） */
+  [data-lang] { display:none; }
+
+  /* ==== 响应式 ==== */
+  @media (max-width:900px){
+    .home-section { flex-direction:column; text-align:center; }
+    .home-section .home-text, .home-section img { flex:1 1 100%; }
+    .nav-inner { padding:10px 12px; gap:10px; }
+    .site-brand { font-size:18px; }
+    nav.main-nav { gap:12px; }
+    .carousel { height:360px; }
+  }
+  </style>
+</head>
+
+<body>
+  <!-- ========== header / nav ========== -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" id="siteBrand" class="site-brand">新宿怡家旅馆</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" id="navHome">主页</a>
+        <a href="rooms.html" id="navRoom">客房</a>
+        <a href="about.html" id="navAbout">关于</a>
+        <a href="contact.html" id="navContact">联络我们</a>
+      </nav>
+
+      <div class="lang-wrap">
+        <select id="langSelector" aria-label="选择语言">
+          <option value="zh">中文</option>
+          <option value="zh-TW">繁體中文</option>
+          <option value="jp">日本語</option>
+          <option value="en">English</option>
+          <option value="ko">한국어</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== 轮播 ========== -->
+  <div class="carousel">
+    <div class="carousel-images">
+      <img src="images/hotel-main.jpg" alt="">
+      <img src="images/room1.jpg" alt="">
+      <img src="images/room2.jpg" alt="">
+      <img src="images/room3.jpg" alt="">
+    </div>
+    <button class="carousel-btn prev">〈</button>
+    <button class="carousel-btn next">〉</button>
+  </div>
+
+  <!-- ========== 主体内容 ========== -->
+  <div class="content">
+    <h1 id="title">我们的旅馆 — 你在东京的新家</h1>
+    <p id="desc">⽆论您是来东京旅⾏观光、探亲访友，还是在市中⼼短期停留，我们都致⼒于为您打造舒适、安⼼且便利的住宿空间。这里不奢华，干净、实用，是许多旅客在东京停留时的理想选择。</p>
+  </div>
+
+  <!-- Section A -->
+  <section class="home-section left-text">
+    <div class="home-text">
+      <h2 id="secA-title">简约 · 干净 · 舒适</h2>
+      <ul id="secA-desc">
+        <li>我们始终相信，旅途中的住宿不必奢华，但必须让人安心、放松、睡得好。</li>
+        <li>安静舒适的休息环境</li>
+        <li>不打扰的入住方式</li>
+        <li>完善的生活设备</li>
+        <li>高性价比的住宿体验</li>
+      </ul>
+    </div>
+    <img src="images/secA.jpg" class="home-img" alt="">
+  </section>
+
+  <!-- Section B -->
+  <section class="home-section left-image">
+    <img src="images/secB.jpg" class="home-img" alt="">
+    <div class="home-text">
+      <h3 id="secB-title">为了让入住更便利，我们提供以下设施：</h3>
+      <ul id="secB-desc">
+        <li>客房内洗衣机</li>
+        <li>微波炉（仅限加热，不可烹饪）</li>
+        <li>冰箱、热水壶、基本餐具</li>
+        <li>洗浴用品、毛巾套装、洗漱用具</li>
+        <li>免费高速 Wi-Fi</li>
+        <li>自助式入住系统</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section C -->
+  <section class="home-section left-text">
+    <div class="home-text">
+      <h3 id="secC-title">给旅客的重要提醒</h3>
+      <ul id="secC-desc">
+        <li>全馆禁止吸烟</li>
+        <li>禁止做饭（微波炉可用于加热）</li>
+        <li>夜间须保持安静</li>
+        <li>房内设施仅供入住期间使用</li>
+      </ul>
+    </div>
+    <img src="images/secC.jpg" class="home-img" alt="">
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-title" id="footerTitle">联系我们</div>
+    <div class="footer-info" id="footerInfo">
+      电话: 03-1234-5678 --- 地址: 东京都新宿区XXX --- 邮箱: info@example.com
+    </div>
+    <div class="footer-copy" id="footerCopy">© 2025 新宿怡家旅馆 版权所有</div>
+  </footer>
+
+  <!-- ========== 脚本：语言、轮播、footer ========= -->
+  <script>
+  // 文本内容（保持你原先的 texts 对象）
+  const texts = {
+    "zh": {
+      nav:["主页","客房","关于","联络我们"],
+      title:"我们的旅馆 — 你在东京的新家",
+      desc:"⽆论您是来东京旅⾏观光、探亲访友，还是在市中⼼短期停留，我们都致⼒于为您打造舒适、安⼼且便利的住宿空间。这里不奢华，干净、实用，是许多旅客在东京停留时的理想选择。",
+      secA_title:"简约 · 干净 · 舒适",
+      secA_desc:["我们始终相信，旅途中的住宿不必奢华，但必须让人安心、放松、睡得好。","安静舒适的休息环境","不打扰的入住方式","完善的生活设备","高性价比的住宿体验"],
+      secB_title:"为了让入住更便利，我们提供以下设施：",
+      secB_desc:["客房内洗衣机","微波炉（仅限加热，不可烹饪）","冰箱、热水壶、基本餐具","洗浴用品、毛巾套装、洗漱用具","免费高速 Wi-Fi","自助式入住系统"],
+      secC_title:"给旅客的重要提醒",
+      secC_desc:["全馆禁止吸烟","禁止做饭（微波炉可用于加热）","夜间须保持安静","房内设施仅供入住期间使用"],
+      footerTitle:"联系我们",
+      footerInfo:"电话: 03-1234-5678 --- 地址: 东京都新宿区XXX --- 邮箱: info@example.com",
+      footerCopy:"© 2025 新宿怡家旅馆 版权所有",
+      brand:"新宿怡家旅馆"
+    },
+    "zh-TW": {
+      nav:["首頁","客房","關於","聯絡我們"],
+      title:"歡迎來到我們的酒店",
+      desc:"無論您是來東京旅行觀光、探親訪友，還是在市中心短期停留，我們致力於為您打造舒適、安心且便利的住宿空間。",
+      secA_title:"簡約 · 乾淨 · 舒適",
+      secA_desc:["我們始終相信，旅途中的住宿不必奢華，但必須讓人安心、放鬆、睡得好。","安靜舒適的休息環境","不打擾的入住方式","完善的生活設備","高性價比的住宿體驗"],
+      secB_title:"為了讓入住更便利，我們提供以下設施：",
+      secB_desc:["房內洗衣機","微波爐（僅供加熱，不可料理）","冰箱、熱水壺、基本餐具","沐浴用品、毛巾組、盥洗用具","免費高速 Wi-Fi","自助入住系統"],
+      secC_title:"給旅客的重要提醒",
+      secC_desc:["全館禁止吸菸","禁止烹飪（微波爐可加熱）","夜間請保持安靜","客室內設備僅供入住期間使用"],
+      footerTitle:"聯絡我們",
+      footerInfo:"電話: 03-1234-5678 --- 地址: 東京都新宿区XXX --- 郵箱: info@example.com",
+      footerCopy:"© 2025 新宿怡家旅館 版權所有",
+      brand:"新宿怡家旅館"
+    },
+    "en": {
+      nav:["Home","Rooms","About","Contact Us"],
+      title:"Welcome to Our Hotel",
+      desc:"Whether visiting Tokyo for sightseeing, visiting friends/family, or a short stay, we provide a comfortable, safe, and convenient accommodation.",
+      secA_title:"Simple · Clean · Comfortable",
+      secA_desc:["Accommodation does not need to be luxurious, but it must allow you to rest well.","A quiet and comfortable environment","Non-intrusive check-in","Essential living equipment","High value-for-money"],
+      secB_title:"Facilities We Provide",
+      secB_desc:["In-room washing machine","Microwave (heating only)","Refrigerator, kettle, basic tableware","Bath amenities & towels","Free high-speed Wi-Fi","Self check-in system"],
+      secC_title:"Important Notice for Guests",
+      secC_desc:["No smoking inside the building","No cooking (microwave allowed for heating)","Please maintain quiet hours at night","Room facilities are for stay-use only"],
+      footerTitle:"Contact Us",
+      footerInfo:"Phone: 03-1234-5678 --- Address: Shinjuku, Tokyo, XXX --- Email: info@example.com",
+      footerCopy:"© 2025 Shinjuku Warm House. All rights reserved.",
+      brand:"ShinjukuWarmHouse"
+    },
+    "jp": {
+      nav:["ホーム","客室","について","お問い合わせ"],
+      title:"私たちのホテルへようこそ",
+      desc:"東京観光や滞在に関わらず、快適で安心な宿泊スペースを提供します。",
+      secA_title:"シンプル · 清潔 · 快適",
+      secA_desc:["宿泊は豪華である必要はありませんが、安心してよく眠れることが大切です。","静かで快適な休息環境","非対面チェックイン","生活設備の充実","高いコストパフォーマンス"],
+      secB_title:"より快適にご滞在いただくため、以下の設備をご用意しております：",
+      secB_desc:["客室内洗濯機","電子レンジ（温めのみ）","冷蔵庫・電気ケトル・食器類","バスアメニティ・タオル","無料高速 Wi-Fi","セルフチェックインシステム"],
+      secC_title:"ご宿泊のお客様への注意事項",
+      secC_desc:["館内は全て禁煙です","電子レンジ以外の調理行為は禁止されています","夜間はお静かにお願いします","客室内設備は滞在期間中のみご利用いただけます"],
+      footerTitle:"お問い合わせ",
+      footerInfo:"電話: 03-1234-5678 --- 住所: 東京都新宿区XXX --- メール: info@example.com",
+      footerCopy:"© 2025 新宿怡家旅館 全著作権所有",
+      brand:"新宿怡家旅館"
+    },
+    "ko": {
+      nav:["홈","객실","소개","문의하기"],
+      title:"우리 호텔에 오신 것을 환영합니다",
+      desc:"도쿄를 방문하거나 단기 체류할 때 편안하고 안전한 숙박 공간을 제공합니다。",
+      secA_title:"심플 · 깨끗함 · 편안함",
+      secA_desc:["숙박은 화려할 필요는 없지만, 편안한 휴식은 꼭 필요합니다.","조용하고 편안한 환경","비대면 체크인","생활편의 시설","높은 가성비"],
+      secB_title:"더 편안한 숙박을 위해 다음과 같은 시설을 제공합니다:",
+      secB_desc:["객실 내 세탁기","전자레인지(데우기만 가능)","냉장고, 전기포트, 기본 식기","욕실용품 및 수건","무료 고속 Wi-Fi","셀프 체크인 시스템"],
+      secC_title:"숙박객을 위한 안내사항",
+      secC_desc:["건물 전체 금연","조리 금지(전자레인지만 사용 가능)","야간에는 조용히 해주세요","객실 내 시설은 투숙 기간 동안만 사용 가능합니다"],
+      footerTitle:"문의하기",
+      footerInfo:"전화: 03-1234-5678 --- 주소: 도쿄 신주쿠구XXX --- 이메일: info@example.com",
+      footerCopy:"© 2025 신주쿠 이카 여관 모든 권리 보유",
+      brand:"신주쿠 이카 여관"
+    }
+  };
+
+  // 站名文本（备用，不必单独）
+  const brandNames = {
+    "zh":"新宿怡家旅馆",
+    "zh-TW":"新宿怡家旅館",
+    "en":"ShinjukuWarmHouse",
+    "jp":"新宿怡家旅館",
+    "ko":"신주쿠 이카 여관"
+  };
+
+  // DOM helpers
+  const selector = document.getElementById("langSelector");
+  const setLanguage = (lang) => {
+    const t = texts[lang] || texts["zh"];
+    // nav
+    document.getElementById("navHome").textContent = t.nav[0];
+    document.getElementById("navRoom").textContent = t.nav[1];
+    document.getElementById("navAbout").textContent = t.nav[2];
+    document.getElementById("navContact").textContent = t.nav[3];
+    // brand
+    const brand = document.getElementById("siteBrand");
+    if(brand) brand.textContent = (t.brand || brandNames[lang] || brandNames["zh"]);
+    // main content
+    const titleEl = document.getElementById("title");
+    if(titleEl) titleEl.textContent = t.title;
+    const descEl = document.getElementById("desc");
+    if(descEl) descEl.innerHTML = t.desc;
+    // sections
+    const sa = document.getElementById("secA-title"); if(sa) sa.textContent = t.secA_title;
+    const saDesc = document.getElementById("secA-desc"); if(saDesc) saDesc.innerHTML = t.secA_desc.map(i=>"• "+i).join("<br>");
+    const sb = document.getElementById("secB-title"); if(sb) sb.textContent = t.secB_title;
+    const sbDesc = document.getElementById("secB-desc"); if(sbDesc) sbDesc.innerHTML = t.secB_desc.map(i=>"• "+i).join("<br>");
+    const sc = document.getElementById("secC-title"); if(sc) sc.textContent = t.secC_title;
+    const scDesc = document.getElementById("secC-desc"); if(scDesc) scDesc.innerHTML = t.secC_desc.map(i=>"• "+i).join("<br>");
+    // footer
+    const ft = document.getElementById("footerTitle"); if(ft) ft.textContent = t.footerTitle;
+    const fi = document.getElementById("footerInfo"); if(fi) fi.textContent = t.footerInfo;
+    const fc = document.getElementById("footerCopy"); if(fc) fc.textContent = t.footerCopy;
+    // set html lang attribute
+    document.documentElement.lang = lang;
+  };
+
+  // 保存/读取 language 到 localStorage
+  const saveLang = (lang) => localStorage.setItem("siteLang", lang);
+  const readLang = () => localStorage.getItem("siteLang") || null;
+
+  // 初始化（页面加载时）
+  document.addEventListener("DOMContentLoaded", ()=> {
+    // 1. 先尝试 localStorage
+    let lang = readLang();
+
+    // 2. 若无 localStorage，检测 selector（例如首次访问）
+    if(!lang && selector && selector.value) lang = selector.value;
+
+    // 3. 默认 zh
+    if(!lang) lang = "zh";
+
+    // 4. 更新 selector UI
+    if(selector) selector.value = lang;
+
+    // 5. 应用语言
+    setLanguage(lang);
+  });
+
+  // 切换时行为：保存并应用
+  if(selector){
+    selector.addEventListener("change", (e)=>{
+      const newLang = e.target.value;
+      saveLang(newLang);
+      setLanguage(newLang);
+    });
+  }
+
+  // ========== 轮播逻辑 ==========
+  let currentIndex = 0;
+  const track = document.querySelector(".carousel-images");
+  const slides = document.querySelectorAll(".carousel-images img");
+  const totalSlides = slides.length || 1;
+  function updateSlide(){ if(track) track.style.transform = `translateX(-${currentIndex*100}%)`; }
+  let autoPlay = setInterval(()=>{ currentIndex=(currentIndex+1)%totalSlides; updateSlide(); }, 3000);
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
+  if(prevBtn) prevBtn.addEventListener("click", ()=>{ currentIndex=(currentIndex-1+totalSlides)%totalSlides; updateSlide(); restartAuto(); });
+  if(nextBtn) nextBtn.addEventListener("click", ()=>{ currentIndex=(currentIndex+1)%totalSlides; updateSlide(); restartAuto(); });
+  function restartAuto(){ clearInterval(autoPlay); autoPlay = setInterval(()=>{ currentIndex=(currentIndex+1)%totalSlides; updateSlide(); },3000); }
+  </script>
+</body>
+</html>
