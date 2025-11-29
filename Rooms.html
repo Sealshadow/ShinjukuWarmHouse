@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>客房 — 新宿怡家旅馆</title>
+
+<!-- 艺术字体 -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ========= 全局 ========= */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background:#f5f5f5; color:#333; }
+
+/* ========= 导航 ========= */
+header.site-header {
+  width:100%;
+  background:#333;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);
+}
+.nav-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  padding:14px 20px;
+}
+.site-brand {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size:28px; /* LOGO 放大 */
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  margin-right:40px; /* LOGO 左移一点 */
+}
+nav.main-nav {
+  display:flex;
+  flex:1;
+  justify-content:center; /* 导航文字居中 */
+  align-items:center;
+  gap:30px; /* 导航文字间距 */
+}
+nav.main-nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:18px;
+  padding:0;
+}
+
+/* 语言选择 */
+.lang-wrap { margin-left:auto; }
+.lang-wrap select { padding:8px 12px; border-radius:6px; border:none; font-size:15px; }
+
+/* ========= 页面内容 ========= */
+.room-banner { width:100%; height:550px; overflow:hidden; }
+.room-banner img { width:100%; height:100%; object-fit:cover; display:block; }
+
+.room-text {
+  max-width:1000px;
+  margin:30px auto 60px auto;
+  background:#fff;
+  padding:40px 30px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  line-height:1.8;
+  font-size:22px;
+}
+.room-text h2 { font-family: "黑体", "Arial Black", Arial, sans-serif; font-weight:bold; font-size:50px; margin-bottom:25px; text-align:center; }
+.room-text ul { list-style: disc; padding-left:25px; margin-top:10px; }
+
+/* ========= Footer ========= */
+.site-footer { background:#000; color:#fff; padding:40px 20px; text-align:center; font-size:16px; }
+.footer-title { font-size:28px; color:orange; margin-bottom:15px; font-weight:700; }
+.footer-info { font-size:14px; line-height:1.6; margin-bottom:10px; }
+.footer-copy { font-size:12px; opacity:0.8; }
+
+/* ========= 响应式 ========= */
+@media (max-width:900px){
+  .room-banner { height:400px; }
+  .room-text { font-size:18px; padding:20px; }
+  .room-text h2 { font-size:36px; }
+  .nav-inner { padding:10px 12px; gap:10px; }
+  .site-brand { font-size:24px; margin-right:20px; }
+  nav.main-nav { gap:20px; }
+  nav.main-nav a { font-size:16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="site-brand" id="siteBrand">新宿怡家旅馆</a>
+    <nav class="main-nav">
+      <a href="index.html" id="navHome">主页</a>
+      <a href="rooms.html" id="navRoom">客房</a>
+      <a href="about.html" id="navAbout">关于</a>
+      <a href="contact.html" id="navContact">联络我们</a>
+    </nav>
+    <div class="lang-wrap">
+      <select id="langSelector">
+        <option value="zh">中文</option>
+        <option value="zh-TW">繁體中文</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+        <option value="ko">한국어</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<div class="room-banner">
+  <img src="images/rooms1.jpg" alt="房间大图">
+</div>
+
+<div class="room-text" id="roomContent">
+  <h2 id="roomTitle">我们的房间</h2>
+  <p id="roomDesc">我们提供 8 间设计简洁、干净舒适的客房（其中 1 间为带阳台套房），所有房间均配备：</p>
+  <ul id="roomList">
+    <li>洗衣机（旅途中随时保持衣物清洁）</li>
+    <li>微波炉（外带食物加热更方便）</li>
+    <li>独立卫浴</li>
+    <li>空调与高速网络</li>
+    <li>生活必需品齐全</li>
+  </ul>
+  <p id="roomExtra">房间并非豪华，但干净、实用、易于居住，非常适合想要轻松旅行的客人。</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-title" id="footerTitle">联系我们</div>
+  <div class="footer-info" id="footerInfo">电话: 03-1234-5678 --- 地址: 东京都新宿区XXX --- 邮箱: info@example.com</div>
+  <div class="footer-copy" id="footerCopy">© 2025 新宿怡家旅馆 版权所有</div>
+</footer>
+
+<script>
+// 多语言文本
+const texts = {
+  "zh": {
+    nav:["主页","客房","关于","联络我们"],
+    brand:"新宿怡家旅馆",
+    roomTitle:"我们的房间",
+    roomDesc:"我们提供 8 间设计简洁、干净舒适的客房（其中 1 间为带阳台套房），所有房间均配备：",
+    roomList:["洗衣机（旅途中随时保持衣物清洁）","微波炉（外带食物加热更方便）","独立卫浴","空调与高速网络","生活必需品齐全"],
+    roomExtra:"房间并非豪华，但干净、实用、易于居住，非常适合想要轻松旅行的客人。",
+    footerTitle:"联系我们",
+    footerInfo:"电话: 03-1234-5678 --- 地址: 东京都新宿区XXX --- 邮箱: info@example.com",
+    footerCopy:"© 2025 新宿怡家旅馆 版权所有"
+  },
+  "zh-TW": {
+    nav:["首頁","客房","關於","聯絡我們"],
+    brand:"新宿怡家旅館",
+    roomTitle:"我們的房間",
+    roomDesc:"我們提供 8 間設計簡潔、乾淨舒適的客房（其中 1 間為帶陽台套房），所有房間均配備：",
+    roomList:["洗衣機（旅途中隨時保持衣物清潔）","微波爐（外帶食物加熱更方便）","獨立衛浴","空調與高速網路","生活必需品齊全"],
+    roomExtra:"房間並非豪華，但乾淨、實用、易於居住，非常適合想要輕鬆旅行的客人。",
+    footerTitle:"聯絡我們",
+    footerInfo:"電話: 03-1234-5678 --- 地址: 東京都新宿区XXX --- 郵箱: info@example.com",
+    footerCopy:"© 2025 新宿怡家旅館 版權所有"
+  },
+  "en": {
+    nav:["Home","Rooms","About","Contact Us"],
+    brand:"ShinjukuWarmHouse",
+    roomTitle:"Our Rooms",
+    roomDesc:"We offer 8 clean and comfortable rooms (including 1 balcony suite), all equipped with:",
+    roomList:["Washing machine (keep clothes clean)","Microwave (for reheating food)","Private bathroom","Air conditioning and high-speed internet","Essential daily necessities"],
+    roomExtra:"Rooms are not luxurious but clean, practical, and suitable for guests seeking a relaxed stay.",
+    footerTitle:"Contact Us",
+    footerInfo:"Phone: 03-1234-5678 --- Address: Shinjuku, Tokyo, XXX --- Email: info@example.com",
+    footerCopy:"© 2025 Shinjuku Warm House. All rights reserved."
+  },
+  "jp": {
+    nav:["ホーム","客室","について","お問い合わせ"],
+    brand:"新宿怡家旅館",
+    roomTitle:"私たちの客室",
+    roomDesc:"シンプルで清潔な客室を8室ご用意（うち1室はバルコニー付きスイート）、全ての客室には以下が備わっています：",
+    roomList:["洗濯機（滞在中いつでも衣類を清潔に保てます）","電子レンジ（持ち込み食材の加熱に便利）","独立バスルーム","エアコンと高速インターネット","生活必需品完備"],
+    roomExtra:"客室は豪華ではありませんが、清潔で実用的、快適な滞在に最適です。",
+    footerTitle:"お問い合わせ",
+    footerInfo:"電話: 03-1234-5678 --- 住所: 東京都新宿区XXX --- メール: info@example.com",
+    footerCopy:"© 2025 新宿怡家旅館 全著作権所有"
+  },
+  "ko": {
+    nav:["홈","객실","소개","문의하기"],
+    brand:"신주쿠 이카 여관",
+    roomTitle:"우리 객실",
+    roomDesc:"저희는 8개의 깔끔하고 편안한 객실(그중 1개는 발코니 스위트)을 제공하며, 모든 객실에는 다음이 갖춰져 있습니다:",
+    roomList:["세탁기 (체류 중 언제든지 옷을 깨끗하게 유지)","전자레인지 (음식 데우기 용)","독립 욕실","에어컨과 고속 인터넷","생활 필수품 완비"],
+    roomExtra:"객실은 호화롭지 않지만, 깨끗하고 실용적이며 편안한 여행을 원하는 고객에게 적합합니다。",
+    footerTitle:"문의하기",
+    footerInfo:"전화: 03-1234-5678 --- 주소: 도쿄 신주쿠구XXX --- 이메일: info@example.com",
+    footerCopy:"© 2025 신주쿠 이카 여관 모든 권리 보유"
+  }
+};
+
+// DOM 更新函数
+function setLanguage(lang){
+  const t = texts[lang] || texts["zh"];
+  document.getElementById("navHome").textContent = t.nav[0];
+  document.getElementById("navRoom").textContent = t.nav[1];
+  document.getElementById("navAbout").textContent = t.nav[2];
+  document.getElementById("navContact").textContent = t.nav[3];
+  document.getElementById("siteBrand").textContent = t.brand;
+
+  document.getElementById("roomTitle").textContent = t.roomTitle;
+  document.getElementById("roomDesc").textContent = t.roomDesc;
+  document.getElementById("roomExtra").textContent = t.roomExtra;
+
+  const listEl = document.getElementById("roomList");
+  listEl.innerHTML = "";
+  t.roomList.forEach(li => { const el = document.createElement("li"); el.textContent=li; listEl.appendChild(el); });
+
+  document.getElementById("footerTitle").textContent = t.footerTitle;
+  document.getElementById("footerInfo").textContent = t.footerInfo;
+  document.getElementById("footerCopy").textContent = t.footerCopy;
+
+  document.documentElement.lang = lang;
+  localStorage.setItem("siteLang", lang);
+}
+
+// 初始化
+document.addEventListener("DOMContentLoaded", ()=>{
+  const saved = localStorage.getItem("siteLang") || "zh";
+  const selector = document.getElementById("langSelector");
+  if(selector) selector.value = saved;
+  setLanguage(saved);
+
+  selector.addEventListener("change",(e)=>{
+    setLanguage(e.target.value);
+  });
+});
+</script>
+
+</body>
+</html>
