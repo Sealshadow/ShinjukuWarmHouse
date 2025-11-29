@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>联系我们 - 新宿怡家旅馆</title>
+
+<style>
+/* ========= 全局样式 ========= */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background:#f5f5f5; color:#333; }
+
+/* ========= 导航栏 ========= */
+header.site-header {
+  width:100%;
+  background:#333;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);
+}
+.nav-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  padding:14px 20px;
+}
+.site-brand {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size:28px;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  margin-right:40px;
+}
+nav.main-nav {
+  display:flex;
+  flex:1;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+}
+nav.main-nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:18px;
+}
+.lang-wrap { margin-left:auto; }
+.lang-wrap select { padding:8px 12px; border-radius:6px; border:none; font-size:15px; cursor:pointer; }
+
+/* ========= 内容区域 ========= */
+.content { max-width:900px; margin:60px auto 40px auto; padding:20px; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.07); text-align:center; }
+.content h1 { font-size:36px; font-weight:bold; margin-bottom:20px; }
+.contact-form { display:flex; flex-direction:column; gap:20px; text-align:left; max-width:600px; margin:0 auto 40px auto; }
+.contact-form label { font-weight:bold; margin-bottom:6px; display:block; }
+.contact-form input, .contact-form textarea { width:100%; padding:12px 15px; border-radius:8px; border:1px solid #ccc; font-size:16px; }
+.contact-form textarea { min-height:140px; resize:vertical; }
+.contact-form button { padding:14px 20px; font-size:18px; font-weight:bold; border:none; border-radius:8px; background: linear-gradient(90deg,#4d90fe,#357ae8); color:#fff; cursor:pointer; transition:0.3s; }
+.contact-form button:hover { background: linear-gradient(90deg,#357ae8,#4d90fe); }
+.welcome-msg { max-width:800px; margin:0 auto 60px auto; font-size:18px; line-height:1.6; text-align:center; }
+
+/* ========= Footer ========= */
+.site-footer { background:#000; color:#fff; padding:30px 20px; text-align:center; font-size:16px; }
+.footer-contact h3 { font-size:28px; color:orange; margin-bottom:15px; }
+.footer-contact p { margin:5px 0; line-height:1.6; font-size:14px; color:#fff; word-wrap:break-word; }
+@media(min-width:800px){ .footer-contact p { display:flex; justify-content:center; gap:15px; } }
+.footer-copy p { font-size:12px; margin-top:10px; color:#fff; }
+
+/* ========= 响应式 ========= */
+@media(max-width:768px){
+  h1 { font-size:28px; }
+  .contact-form input, .contact-form textarea, .contact-form button { font-size:16px; }
+  .welcome-msg { font-size:16px; }
+  .nav-inner { flex-wrap:wrap; gap:10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="site-brand" id="siteBrand">新宿怡家旅馆</a>
+    <nav class="main-nav">
+      <a href="index.html" id="navHome">主页</a>
+      <a href="rooms.html" id="navRoom">客房</a>
+      <a href="about.html" id="navAbout">关于</a>
+      <a href="contact.html" id="navContact">联系我们</a>
+    </nav>
+    <div class="lang-wrap">
+      <select id="langSelector">
+        <option value="zh">中文</option>
+        <option value="zh-TW">繁體中文</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+        <option value="ko">한국어</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<div class="content">
+  <h1 id="pageTitle">我们随时为您提供帮助</h1>
+  <p id="leaveMsgTitle">请给我们留言</p>
+
+  <form class="contact-form" method="post" action="send_mail.php">
+    <label for="name" id="labelName">姓名：</label>
+    <input type="text" id="name" name="name" required>
+    <label for="phone" id="labelPhone">电话：</label>
+    <input type="text" id="phone" name="phone">
+    <label for="email" id="labelEmail">电子邮箱：</label>
+    <input type="email" id="email" name="email" required>
+    <label for="message" id="labelMessage">信息：</label>
+    <textarea id="message" name="message" required></textarea>
+    <button type="submit" id="btnSubmit">发送留言</button>
+  </form>
+
+  <div class="welcome-msg" id="welcomeMsg">
+    我们希望您在东京的每一天都舒适、自在、愉快。 新宿怡家旅馆虽然不大，但我们用心维护每一间客房，只为让旅客在远离家乡的旅途中，也能找到一处温暖安稳的空间。 期待在东京与您相遇。 欢迎回家。
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-contact">
+    <h3 id="footerTitle">联系我们</h3>
+    <p id="footerInfo">电话: 03-1234-5678 --- 地址: 东京都新宿区XXX --- 邮箱: info@example.com</p>
+  </div>
+  <div class="footer-copy">
+    <p id="footerCopy">© 2025 新宿怡家旅馆 版权所有</p>
+  </div>
+</footer>
+
+<script>
+// 多语言文本
+const texts = {
+  "zh": { nav:["主页","客房","关于","联系我们"], brand:"新宿怡家旅馆",
+          pageTitle:"我们随时为您提供帮助", leaveMsgTitle:"请给我们留言",
+          labels:["姓名：","电话：","电子邮箱：","信息："], btn:"发送留言",
+          welcome:"我们希望您在东京的每一天都舒适、自在、愉快。 新宿怡家旅馆虽然不大，但我们用心维护每一间客房，只为让旅客在远离家乡的旅途中，也能找到一处温暖安稳的空间。 期待在东京与您相遇。 欢迎回家。",
+          footerTitle:"联系我们", footerInfo:"电话: 03-1234-5678 --- 地址: 东京都新宿区XXX --- 邮箱: info@example.com", footerCopy:"© 2025 新宿怡家旅馆 版权所有"
+  },
+  "zh-TW": { nav:["首頁","客房","關於","聯絡我們"], brand:"新宿怡家旅館",
+          pageTitle:"我們隨時為您提供幫助", leaveMsgTitle:"請給我們留言",
+          labels:["姓名：","電話：","電子郵箱：","信息："], btn:"發送留言",
+          welcome:"我們希望您在東京的每一天都舒適、自在、愉快。新宿怡家旅館雖不大，但我們用心維護每一間客房，只為讓旅客在遠離家鄉的旅途中，也能找到一處溫暖安穩的空間。期待在東京與您相遇。歡迎回家。",
+          footerTitle:"聯絡我們", footerInfo:"電話: 03-1234-5678 --- 地址: 東京都新宿区XXX --- 郵箱: info@example.com", footerCopy:"© 2025 新宿怡家旅館 版權所有"
+  },
+  "en": { nav:["Home","Rooms","About","Contact Us"], brand:"Shinjuku Cozy Inn",
+          pageTitle:"We are always here to help", leaveMsgTitle:"Leave us a message",
+          labels:["Name:","Phone:","Email:","Message:"], btn:"Send Message",
+          welcome:"We hope you enjoy every day in Tokyo comfortably and happily. Although Shinjuku Cozy Inn is small, we take care of every room, so travelers can find a warm and safe space even far from home. Looking forward to seeing you in Tokyo. Welcome home.",
+          footerTitle:"Contact Us", footerInfo:"Phone: 03-1234-5678 --- Address: Shinjuku, Tokyo, XXX --- Email: info@example.com", footerCopy:"© 2025 Shinjuku Cozy Inn. All rights reserved."
+  },
+  "jp": { nav:["ホーム","客室","について","お問い合わせ"], brand:"新宿怡家旅館",
+          pageTitle:"私たちはいつでもお手伝いします", leaveMsgTitle:"メッセージを残してください",
+          labels:["名前：","電話：","メール：","メッセージ："], btn:"送信",
+          welcome:"東京での毎日を快適にお過ごしいただけることを願っています。新宿コージーインは小さいですが、各客室を丁寧に整備し、旅行者が家を離れても温かく安心できる場所を提供します。東京でお会いできるのを楽しみにしています。おかえりなさい。",
+          footerTitle:"お問い合わせ", footerInfo:"電話: 03-1234-5678 --- 住所: 東京都新宿区XXX --- メール: info@example.com", footerCopy:"© 2025 新宿イカホテル 全著作権所有"
+  },
+  "ko": { nav:["홈","객실","소개","문의하기"], brand:"신주쿠 이카 여관",
+          pageTitle:"언제든 도와드립니다", leaveMsgTitle:"메시지를 남겨주세요",
+          labels:["이름:","전화:","이메일:","메시지:"], btn:"보내기",
+          welcome:"도쿄에서의 하루하루가 편안하고 즐겁기를 바랍니다. 신주쿠 코지 인은 작지만, 모든 객실을 세심하게 관리하여 여행객들이 집을 떠나 있어도 따뜻하고 안전한 공간을 제공합니다. 도쿄에서 만나길 기대합니다. 환영합니다.",
+          footerTitle:"문의하기", footerInfo:"전화: 03-1234-5678 --- 주소: 도쿄 신주쿠구 XXX --- 이메일: info@example.com", footerCopy:"© 2025 신주쿠 이카 여관 모든 권리 보유"
+  }
+};
+
+// 更新语言函数
+function setLanguage(lang){
+  const t = texts[lang] || texts["zh"];
+  document.getElementById("navHome").textContent = t.nav[0];
+  document.getElementById("navRoom").textContent = t.nav[1];
+  document.getElementById("navAbout").textContent = t.nav[2];
+  document.getElementById("navContact").textContent = t.nav[3];
+  document.getElementById("siteBrand").textContent = t.brand;
+
+  document.getElementById("pageTitle").textContent = t.pageTitle;
+  document.getElementById("leaveMsgTitle").textContent = t.leaveMsgTitle;
+  const labels = document.querySelectorAll(".contact-form label");
+  labels.forEach((label,i)=>{ label.textContent = t.labels[i]; });
+  document.getElementById("btnSubmit").textContent = t.btn;
+  document.getElementById("welcomeMsg").textContent = t.welcome;
+
+  document.getElementById("footerTitle").textContent = t.footerTitle;
+  document.getElementById("footerInfo").textContent = t.footerInfo;
+  document.getElementById("footerCopy").textContent = t.footerCopy;
+
+  document.documentElement.lang = lang;
+  localStorage.setItem("siteLang", lang);
+}
+
+// 初始化
+document.addEventListener("DOMContentLoaded", ()=>{
+  const saved = localStorage.getItem("siteLang") || "zh";
+  const selector = document.getElementById("langSelector");
+  selector.value = saved;
+  setLanguage(saved);
+  selector.addEventListener("change",(e)=>{
+    setLanguage(e.target.value);
+  });
+});
+</script>
+
+</body>
+</html>
