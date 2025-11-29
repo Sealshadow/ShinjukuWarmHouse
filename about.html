@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>关于我们 - 新宿怡家旅馆</title>
+
+<!-- 艺术字体 -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ========= 全局 ========= */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background:#f5f5f5; color:#333; }
+
+/* ========= 导航 ========= */
+header.site-header {
+  width:100%;
+  background:#333;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);
+}
+.nav-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  padding:14px 20px;
+}
+.site-brand {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size:28px;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  margin-right:40px;
+}
+nav.main-nav {
+  display:flex;
+  flex:1;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+}
+nav.main-nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:18px;
+  padding:0;
+}
+/* 语言选择 */
+.lang-wrap { margin-left:auto; }
+.lang-wrap select { padding:8px 12px; border-radius:6px; border:none; font-size:15px; }
+
+/* ========= ABOUT 页面内容 ========= */
+.about-banner { width:100%; height:650px; overflow:hidden; }
+.about-banner img { width:100%; height:100%; object-fit:cover; }
+
+.about-text { max-width:1200px; margin:0 auto 40px auto; padding:40px 30px; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); font-size:22px; line-height:1.8; }
+.about-text h1 { font-weight:bold; font-size:42px; text-align:center; margin-bottom:30px; }
+.about-text p, .about-text ul { margin-bottom:20px; font-size:22px; }
+.about-text ul { list-style: disc; padding-left:30px; }
+
+.row { display:flex; gap:40px; flex-wrap:wrap; max-width:1200px; margin:0 auto 40px auto; }
+.column { flex:1 1 50%; padding:0; }
+.column-inner { background:#fff; border-radius:12px; padding:20px 25px; box-shadow:0 4px 12px rgba(0,0,0,0.08); font-size:22px; line-height:1.8; }
+.column-inner h2 { font-size:28px; margin-bottom:20px; }
+.column-inner p, .column-inner ul { margin-bottom:15px; }
+.column-inner ul { list-style: disc; padding-left:25px; }
+
+.map-container { width:100%; max-width:1200px; margin:40px auto 60px auto; height:450px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+.map-container iframe { width:100%; height:100%; border:0; display:block; }
+
+/* ========= Footer ========= */
+.site-footer { background:#000; color:#fff; padding:40px 20px; text-align:center; font-size:16px; }
+.footer-title { font-size:28px; color:orange; margin-bottom:15px; font-weight:700; }
+.footer-info { font-size:14px; line-height:1.6; margin-bottom:10px; }
+.footer-copy { font-size:12px; opacity:0.8; }
+
+/* ========= 响应式 ========= */
+@media (max-width:900px){
+  .about-banner { height:400px; }
+  .about-text { padding:30px 20px; font-size:18px; }
+  .about-text h1 { font-size:32px; }
+  .column { flex:1 1 100%; }
+  .column-inner { padding:20px; font-size:18px; }
+  .column-inner h2 { font-size:24px; }
+  .map-container { height:300px; }
+  .nav-inner { padding:10px 12px; gap:10px; }
+  .site-brand { font-size:24px; margin-right:20px; }
+  nav.main-nav { gap:20px; }
+  nav.main-nav a { font-size:16px; }
+  .lang-wrap select { font-size:16px; padding:8px 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="site-brand" id="siteBrand">新宿怡家旅馆</a>
+    <nav class="main-nav">
+      <a href="index.html" id="navHome">主页</a>
+      <a href="rooms.html" id="navRoom">客房</a>
+      <a href="about.html" id="navAbout">关于</a>
+      <a href="contact.html" id="navContact">联络我们</a>
+    </nav>
+    <div class="lang-wrap">
+      <select id="langSelector">
+        <option value="zh">中文</option>
+        <option value="zh-TW">繁體中文</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+        <option value="ko">한국어</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<div class="about-banner">
+  <img src="images/about1.jpg" alt="关于我们">
+</div>
+
+<div class="about-text">
+  <h1 id="title">关于我们</h1>
+  <p id="desc">
+    新宿怡家旅馆是⼀家位于东京新宿区域的独⽴⼩型旅宿。地处繁华的新宿，但周围氛围安静、安全、⽣活便利，是旅途中⼀个温暖的休憩点。我们为旅客提供：
+    <br>• 交通极为便利的地理位置
+    <br>• 配备⻬全的⽣活设备
+    <br>• 简单⾃助、尊重隐私的⼊住体验
+    <br>• ⼲净整洁、维护良好的住宿环境
+    <br>⽆论您是计划探索东京、体验都市⽂化，或只是想在繁忙⾏程中找到⼀处舒适落脚点，新宿怡家旅馆都会是理想选择。
+  </p>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="column-inner" id="access">
+      <h2>Access / 抵达⽅式</h2>
+      <p>
+        我们的位置极具优势：<br>
+        都营⼤江户线 A2 出⼝斜对⾯<br>
+        对⾯就是 7-Eleven<br>
+        5 分钟步⾏可达 ⻄武新宿线<br>
+        从旅馆前往以下地点⾮常⽅便：<br>
+        • 新宿：约 5 分钟<br>
+        • 涩⾕：约 15–20 分钟<br>
+        • 原宿：约 12–18 分钟<br>
+        • 池袋：约 10 分钟<br>
+        • 成⽥／⽻⽥机场：多种交通⽅式可直达<br>
+        地铁就在⻔⼝，让观光不再疲惫。
+      </p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="column-inner" id="neigh">
+      <h2>Neighborhood / 周边环境</h2>
+      <p>
+        周边设施包括：<br>
+        • 便利店（楼下 7-Eleven）<br>
+        • 超市<br>
+        • 当地餐馆<br>
+        • 公园<br>
+        • 地铁站与巴⼠站<br>
+        环境朴素但⽣活便利，非常适合短期旅⾏者。
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="map-container">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202.46845937263657!2d139.686935!3d35.7140343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f36fbec79a01%3A0x1a9905611b8f4eb0!2z5paw5a6_5oCh5a625peF6aSo!5e0!3m2!1szh-CN!2sjp!4v1764356857513!5m2!1szh-CN!2sjp" 
+    allowfullscreen="" loading="lazy">
+  </iframe>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-title" id="footerTitle">联系我们</div>
+  <div class="footer-info" id="footerInfo">电话: 03-1234-5678 --- 地址: 东京都新宿区XXX --- 邮箱: info@example.com</div>
+  <div class="footer-copy" id="footerCopy">© 2025 新宿怡家旅馆 版权所有</div>
+</footer>
+
+<script>
+// 多语言文本
+const texts = {
+  "zh": { nav:["主页","客房","关于","联络我们"], brand:"新宿怡家旅馆", title:"关于我们", desc:"新宿怡家旅馆是⼀家位于东京新宿区域的独⽴⼩型旅宿。地处繁华的新宿，但周围氛围安静、安全、⽣活便利，是旅途中⼀个温暖的休憩点。我们为旅客提供： • 交通极为便利的地理位置 • 配备⻬全的⽣活设备 • 简单⾃助、尊重隐私的⼊住体验 • ⼲净整洁、维护良好的住宿环境 ⽆论您是计划探索东京、体验都市⽂化，或只是想在繁忙⾏程中找到⼀处舒适落脚点，新宿怡家旅馆都会是理想选择。", 
+            access:"Access / 抵达⽅式", accessText:"我们的位置极具优势：<br>都营⼤江户线 A2 出⼝斜对⾯<br>对⾯就是 7-Eleven<br>5 分钟步⾏可达 ⻄武新宿线<br>从旅馆前往以下地点⾮常⽅便：<br>• 新宿：约 5 分钟<br>• 涩⾕：约 15–20 分钟<br>• 原宿：约 12–18 分钟<br>• 池袋：约 10 分钟<br>• 成⽥／⽻⽥机场：多种交通⽅式可直达<br>地铁就在⻔⼝，让观光不再疲惫。",
+            neigh:"Neighborhood / 周边环境", neighText:"周边设施包括：<br>• 便利店（楼下 7-Eleven）<br>• 超市<br>• 当地餐馆<br>• 公园<br>• 地铁站与巴⼠站<br>环境朴素但⽣活便利，非常适合短期旅⾏者。",
+            footerTitle:"联系我们", footerInfo:"电话: 03-1234-5678 --- 地址: 东京都新宿区XXX --- 邮箱: info@example.com", footerCopy:"© 2025 新宿怡家旅馆 版权所有"
+  },
+  "zh-TW": { nav:["首頁","客房","關於","聯絡我們"], brand:"新宿怡家旅館", title:"關於我們", desc:"新宿怡家旅館是一家位於東京新宿區域的獨立小型旅宿。地處繁華的新宿，但周圍氛圍安靜、安全、生活便利，是旅途中一個溫暖的休憩點。", 
+            access:"Access / 抵達方式", accessText:"我們的位置極具優勢：<br>都營⼤江戶線 A2 出口斜對面<br>對面就是 7-Eleven<br>5 分鐘步行可達 ⻄武新宿線<br>從旅館前往以下地點非常方便：<br>• 新宿：約 5 分鐘<br>• 涉谷：約 15–20 分鐘<br>• 原宿：約 12–18 分鐘<br>• 池袋：約 10 分鐘<br>• 成田/羽田機場：多種交通方式可直達<br>地鐵就在門口，讓觀光不再疲憊。",
+            neigh:"Neighborhood / 周邊環境", neighText:"周邊設施包括：<br>• 便利店（樓下 7-Eleven）<br>• 超市<br>• 當地餐館<br>• 公園<br>• 地鐵站與巴士站<br>環境樸素但生活便利，非常適合短期旅行者。",
+            footerTitle:"聯絡我們", footerInfo:"電話: 03-1234-5678 --- 地址: 東京都新宿区XXX --- 郵箱: info@example.com", footerCopy:"© 2025 新宿怡家旅館 版權所有"
+  },
+  "en": { nav:["Home","Rooms","About","Contact Us"], brand:"ShinjukuWarmHouse", title:"About Us", desc:"Shinjuku Ieka Hotel is a small independent accommodation located in Shinjuku, Tokyo. Conveniently located in the busy area, yet quiet, safe and ideal for travelers.", 
+            access:"Access / Arrival", accessText:"Our location is extremely convenient:<br>Toei Oedo Line A2 exit is right opposite<br>Across is 7-Eleven<br>5 minutes walk to Seibu Shinjuku Line<br>From the hotel to the following destinations is very convenient:<br>• Shinjuku: approx. 5 min<br>• Shibuya: approx. 15–20 min<br>• Harajuku: approx. 12–18 min<br>• Ikebukuro: approx. 10 min<br>• Narita/Haneda Airport: multiple transport options<br>The subway is right at the door, making sightseeing effortless.",
+            neigh:"Neighborhood", neighText:"Nearby facilities include:<br>• Convenience store (7-Eleven downstairs)<br>• Supermarket<br>• Local restaurants<br>• Park<br>• Subway and bus stops<br>The area is simple but convenient, perfect for short-term travelers.",
+            footerTitle:"Contact Us", footerInfo:"Phone: 03-1234-5678 --- Address: Shinjuku, Tokyo, XXX --- Email: info@example.com", footerCopy:"© 2025 Shinjuku Warm House. All rights reserved."
+  },
+  "jp": { nav:["ホーム","客室","について","お問い合わせ"], brand:"新宿怡家旅館", title:"私たちについて", desc:"新宿怡家旅館は東京新宿にある独立型小規模宿泊施設です。繁華街に位置していますが、周囲は静かで安全、生活にも便利で、旅行者にとって温かい休憩場所です。",
+            access:"アクセス / 抵達方式", accessText:"私たちの立地は非常に便利です：<br>都営大江戸線A2出口の斜め向かい<br>目の前は7-Eleven<br>西武新宿線まで徒歩5分<br>ホテルから以下の目的地へ非常に便利：<br>• 新宿：約5分<br>• 渋谷：約15–20分<br>• 原宿：約12–18分<br>• 池袋：約10分<br>• 成田/羽田空港：複数の交通手段があります<br>地下鉄は目の前にあり、観光も楽です。",
+            neigh:"周辺環境", neighText:"周辺施設には以下があります：<br>• コンビニ（下の7-Eleven）<br>• スーパー<br>• 地元レストラン<br>• 公園<br>• 地下鉄とバス停<br>環境はシンプルですが生活に便利で、短期旅行者に最適です。",
+            footerTitle:"お問い合わせ", footerInfo:"電話: 03-1234-5678 --- 住所: 東京都新宿区XXX --- メール: info@example.com", footerCopy:"© 2025 新宿怡家旅館 全著作権所有"
+  },
+  "ko": { nav:["홈","객실","소개","문의하기"], brand:"신주쿠 이카 여관", title:"관하여", desc:"신주쿠 이에카 호텔은 도쿄 신주쿠 지역에 위치한 독립형 소규모 숙소입니다. 번화한 신주쿠 중심부에 위치하지만, 주변은 조용하고 안전하며 생활이 편리하여 여행자에게 따뜻한 휴식 공간을 제공합니다.",
+            access:"이동 / 접근", accessText:"우리 위치는 매우 편리합니다:<br>도에이 오에도선 A2 출구 맞은편<br>앞에 7-Eleven 있음<br>세이부 신주쿠선까지 도보 5분<br>호텔에서 다음 목적지로 매우 편리:<br>• 신주쿠: 약 5분<br>• 시부야: 약 15–20분<br>• 하라주쿠: 약 12–18분<br>• 이케부쿠로: 약 10분<br>• 나리타/하네다 공항: 다양한 교통수단<br>지하철이 문 앞에 있어 관광이 편리합니다.",
+            neigh:"주변 환경", neighText:"주변 시설에는 다음이 포함됩니다:<br>• 편의점(7-Eleven 아래층)<br>• 슈퍼마켓<br>• 현지 음식점<br>• 공원<br>• 지하철 및 버스 정류장<br>환경은 단순하지만 생활 편리, 단기 여행객에게 최적입니다.",
+            footerTitle:"문의하기", footerInfo:"전화: 03-1234-5678 --- 주소: 도쿄 신주쿠구 XXX --- 이메일: info@example.com", footerCopy:"© 2025 신주쿠 이카 여관 모든 권리 보유"
+  }
+};
+
+// 更新页面语言
+function setLanguage(lang){
+  const t = texts[lang] || texts["zh"];
+  document.getElementById("navHome").textContent = t.nav[0];
+  document.getElementById("navRoom").textContent = t.nav[1];
+  document.getElementById("navAbout").textContent = t.nav[2];
+  document.getElementById("navContact").textContent = t.nav[3];
+  document.getElementById("siteBrand").textContent = t.brand;
+
+  document.getElementById("title").textContent = t.title;
+  document.getElementById("desc").innerHTML = t.desc;
+  document.getElementById("access").querySelector('h2').textContent = t.access;
+  document.getElementById("access").querySelector('p').innerHTML = t.accessText;
+  document.getElementById("neigh").querySelector('h2').textContent = t.neigh;
+  document.getElementById("neigh").querySelector('p').innerHTML = t.neighText;
+
+  document.getElementById("footerTitle").textContent = t.footerTitle;
+  document.getElementById("footerInfo").textContent = t.footerInfo;
+  document.getElementById("footerCopy").textContent = t.footerCopy;
+
+  document.documentElement.lang = lang;
+  localStorage.setItem("siteLang", lang);
+}
+
+// 初始化
+document.addEventListener("DOMContentLoaded", ()=>{
+  const saved = localStorage.getItem("siteLang") || "zh";
+  const selector = document.getElementById("langSelector");
+  if(selector) selector.value = saved;
+  setLanguage(saved);
+
+  selector.addEventListener("change",(e)=>{
+    setLanguage(e.target.value);
+  });
+});
+</script>
+
+</body>
+</html>
