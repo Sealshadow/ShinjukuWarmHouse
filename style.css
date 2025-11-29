@@ -1,0 +1,187 @@
+    /* ========= 全局样式 ========= */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+
+    /* ========= Header / Nav ========= */
+    header {
+        background-color: #004d99;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 12px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* ========= 轮播 ========= */
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        overflow: hidden;
+    }
+
+    .carousel-track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.6s ease;
+    }
+
+    .carousel-track img {
+        width: 100%;
+        flex-shrink: 0;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.4);
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        cursor: pointer;
+        font-size: 28px;
+        border-radius: 8px;
+    }
+    .carousel-btn.prev { left: 15px; }
+    .carousel-btn.next { right: 15px; }
+
+    /* ========= 语言控制 ========= */
+    [data-lang] {
+        display: none;
+    }
+
+    /* 默认显示中文（可选） */
+    html[lang="zh"] [data-lang="zh"] {
+        display: block;
+    }
+
+    /* ========= Section A ========= */
+    /* 左图右文，高级酒店排版 */
+    .section-a {
+        display: flex;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    }
+
+    .section-a img {
+        width: 45%;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    .section-a .text-box {
+        width: 55%;
+    }
+
+    .section-a h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #222;
+    }
+
+    .section-a p,
+    .section-a ul {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #333;
+    }
+
+    /* ========= Section B ========= */
+    /* 橙色大宽块 */
+    .section-b {
+        background: #ff9f1c;
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .section-b h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .section-b p,
+    .section-b ul {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    /* ========= Section C ========= */
+    /* 白灰对比的大横块 */
+    .section-c {
+        background: #ffffff;
+        padding: 80px 20px;
+        text-align: center;
+        color: #333;
+    }
+
+    .section-c h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .section-c p,
+    .section-c ul {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    /* ========= 响应式 ========= */
+    @media (max-width: 900px) {
+        .section-a {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .section-a img {
+            width: 100%;
+        }
+
+        .section-a .text-box {
+            width: 100%;
+        }
+    }
+
+    /* ====== 导航栏修改 ====== */
+    nav.main-nav {
+        display: flex;
+        align-items: center;
+        gap: 0; /* 用 padding 控制间距 */
+    }
+
+    nav.main-nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 0 16px; /* 左右间距均匀，文字稍微右移 */
+        position: relative;
+    }
+
+    /* 每个导航项前显示竖线，除了第一个 */
+    nav.main-nav a + a::before {
+        content: "|";
+        color: #fff;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 400;
+    }
+
